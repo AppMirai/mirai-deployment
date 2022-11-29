@@ -15,14 +15,6 @@ jobs:
     steps:
     - name: Checkout Git
       uses: actions/checkout@v3
-    
-    - name: Write Cert & Private Key file
-      env:
-        CERT_ORIGIN: ${{ secrets.CERT_ORIGIN }}
-        CERT_PRIVATE_KEY: ${{ secrets.CERT_PRIVATE_KEY }}
-      run: |
-        echo "$CERT_ORIGIN" | base64 --decode > cert.pem
-        echo "$CERT_PRIVATE_KEY" | base64 --decode > key.pem
       
     - name: Set up QEMU
       uses: docker/setup-qemu-action@v2
